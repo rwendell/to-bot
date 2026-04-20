@@ -2,7 +2,7 @@
 
 ## Overview
 
-Discord bot for tournament organizers to verify players via start.gg integration.
+Automated tournament verification bot - verifies players via start.gg + Discord integration for tournament organizers.
 
 ## Features
 

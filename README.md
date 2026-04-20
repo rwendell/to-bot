@@ -1,16 +1,32 @@
 # TourneyFlow Bot
 
-Discord bot for managing tournament verification with start.gg integration.
+Automated tournament verification bot for tournament organizers.
 
-## Setup
+Players verify their start.gg accounts via Discord to access tournament servers.
+
+## Quick Start
 
 ```bash
 pnpm install
+cp .env.example .env
+# Edit .env with your tokens
+pnpm dev
 ```
+
+## What It Does
+
+- `/verify <username>` - Players verify their start.gg account is linked to their Discord
+- Automatically assigns the "Verified" role on success
+
+## Requirements
+
+- Discord Bot Token
+- start.gg Personal Access Token (PAT)
+- A role named "Verified" in your server
 
 ## Configuration
 
-Create a `.env` file with:
+Create `.env`:
 
 ```
 DISCORD_TOKEN=your_bot_token
@@ -18,15 +34,9 @@ DISCORD_CLIENT_ID=your_client_id
 STARTGG_PAT=your_startgg_pat
 ```
 
-## Development
+## Hosting
 
-```bash
-pnpm dev
-```
-
-## Commands
-
-- `/verify` - Verify your Discord account with start.gg
+See USER_GUIDE.md for full hosting instructions.
 
 ## License
 

@@ -1,5 +1,11 @@
 # TourneyFlow User Guide
 
+## What This Bot Does
+
+Verifies players for tournament organizers by checking if their start.gg account is linked to their Discord. Verified users get the "Verified" role automatically.
+
+---
+
 ## For Bot Host (You)
 
 ### Setup
