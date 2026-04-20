@@ -152,7 +152,10 @@ export class StartGGService {
         {
           id: userId,
           query: {
-            perPage: 50,
+            perPage: 20,
+            filter: {
+              upcoming: true,
+            },
           },
         },
       );

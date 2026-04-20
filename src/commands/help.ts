@@ -3,7 +3,7 @@ import type { CommandInteraction } from "discord.js";
 
 @Discord()
 @SlashGroup("help")
-export class GeneralHelp {
+export class HelpCommand {
   @Slash({ description: "Help overview", name: "overview" })
   async overview(interaction: CommandInteraction): Promise<void> {
     await interaction.reply({
@@ -15,11 +15,7 @@ export class GeneralHelp {
       ephemeral: false,
     });
   }
-}
 
-@Discord()
-@SlashGroup("help")
-export class VerifyHelp {
   @Slash({ description: "Help for verify command", name: "verify" })
   async verify(interaction: CommandInteraction): Promise<void> {
     await interaction.reply({
@@ -37,11 +33,7 @@ The bot checks that your Discord is linked to your start.gg account.`,
       ephemeral: false,
     });
   }
-}
 
-@Discord()
-@SlashGroup("help")
-export class TournamentsHelp {
   @Slash({ description: "Help for tournaments command", name: "tournaments" })
   async tournaments(interaction: CommandInteraction): Promise<void> {
     await interaction.reply({
@@ -56,11 +48,7 @@ Use /dq to self-DQ from a tournament.`,
       ephemeral: false,
     });
   }
-}
 
-@Discord()
-@SlashGroup("help")
-export class DqHelp {
   @Slash({ description: "Help for dq command", name: "dq" })
   async dq(interaction: CommandInteraction): Promise<void> {
     await interaction.reply({
