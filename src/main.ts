@@ -3,26 +3,31 @@ import { dirname, importx } from "@discordx/importer";
 import { Events, GatewayIntentBits } from "discord.js";
 import { Client } from "discordx";
 
-// Note: Need at least Guilds intent for slash commands to register
-// DM bot still works once commands are registered
-
 const client = new Client({
-  intents: [GatewayIntentBits.Guilds],
+    intents: [GatewayIntentBits.Guilds],
 });
 
-client.once(Events.ClientReady, () => {
-  client.initApplicationCommands();
-  console.log(">> VTO (Virtual Tournament Organizer) started");
+client.once(Events.ClientReady, async () => {
+    console.log(">> Loading commands...");
+    await client.initApplicationCommands();
+    console.log(">> VTO (Virtual Tournament Organizer) started");
+
+    // Log registered commands
+    console.log(">> Registered commands:");
+    for (const cmd of client["applicationCommands"].values()) {
+        console.log(`   - /${cmd.name}`);
+    }
 });
 
 client.on(Events.InteractionCreate, (interaction) => {
-  client.executeInteraction(interaction);
+    client.executeInteraction(interaction);
 });
 
-// Auto-load all commands from commands/ directory
+console.log(">> Importing commands from:", `${dirname(import.meta.url)}/commands/**/*.{js,ts}`);
 await importx(`${dirname(import.meta.url)}/commands/**/*.{js,ts}`);
+console.log(">> Commands imported");
 
 if (!process.env.DISCORD_TOKEN) {
-  throw Error("DISCORD_TOKEN not found in environment");
+    throw Error("DISCORD_TOKEN not found in environment");
 }
 await client.login(process.env.DISCORD_TOKEN);
