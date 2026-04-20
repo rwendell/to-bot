@@ -2,27 +2,20 @@
 
 Virtual Tournament Organizer - Automated bot that does everything a human TO can do.
 
-Players verify their start.gg accounts via Discord to access tournament servers.
+Works in DMs only - no Discord server required.
+
+## What It Does
+
+- `/verify <username>` - Verify your start.gg account is linked to Discord
+- `/tournaments` - See your entered tournaments
+- `/dq` - Self-DQ from a tournament
 
 ## Quick Start
 
 ```bash
 pnpm install
-cp .env.example .env
-# Edit .env with your tokens
 pnpm dev
 ```
-
-## What It Does
-
-- `/verify <username>` - Players verify their start.gg account is linked to their Discord
-- Automatically assigns the "Verified" role on success
-
-## Requirements
-
-- Discord Bot Token
-- start.gg Personal Access Token (PAT)
-- A role named "Verified" in your server
 
 ## Configuration
 
@@ -30,13 +23,24 @@ Create `.env`:
 
 ```
 DISCORD_TOKEN=your_bot_token
-DISCORD_CLIENT_ID=your_client_id
 STARTGG_PAT=your_startgg_pat
 ```
 
-## Hosting
+## Architecture
 
-See USER_GUIDE.md for full hosting instructions.
+- Pure DM bot - works anywhere the bot is added
+- No server/guild required
+- No roles
+- No privileged intents
+- SQLite database for persistent verification
+
+## Commands
+
+| Command        | Description              |
+| -------------- | ------------------------ |
+| `/verify`      | Verify start.gg account  |
+| `/tournaments` | View entered tournaments |
+| `/dq`          | Self-DQ from tournament  |
 
 ## License
 

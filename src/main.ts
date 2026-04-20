@@ -1,29 +1,32 @@
-import { dirname, importx } from "@discordx/importer";
-import { Events, GatewayIntentBits } from "discord.js";
-import { Client } from "discordx";
 import "dotenv/config";
-import "./db";
+import { Client, GatewayIntentBits } from "discord.js";
+import { Discord } from "discordx";
+
+// TODO: Initialize database
+// import { initDb } from './db';
+// await initDb();
 
 const client = new Client({
-  intents: [
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMembers,
-    GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.MessageContent,
-  ],
+  // TODO: Determine minimal intents - likely none needed for pure DM bot
+  // intents: [],
+  intents: [],
   silent: false,
 });
 
-client.once(Events.ClientReady, () => {
-  client.initApplicationCommands();
-  console.log(">> VTO started");
+// TODO: Set up global application commands for DM support
+client.once("ready", () => {
+  // TODO: Initialize global application commands
+  // client.initApplicationCommands();
+  console.log(">> VTO (Virtual Tournament Organizer) started");
 });
 
-client.on(Events.InteractionCreate, (interaction) => {
-  client.executeInteraction(interaction);
-});
+// TODO: Handle all interactions
+// client.on('interactionCreate', (interaction) => {
+//     client.executeInteraction(interaction);
+// });
 
-await importx(`${dirname(import.meta.url)}/commands/**/*.{js,ts}`);
+// TODO: Load commands
+// await importx(`${dirname(import.meta.url)}/commands/**/*.{js,ts}`);
 
 if (!process.env.DISCORD_TOKEN) {
   throw Error("DISCORD_TOKEN not found in environment");

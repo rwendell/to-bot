@@ -24,10 +24,5 @@
     "drizzle-kit": "^0.30.0",
     "tsx": "^4.7.0",
     "typescript": "^5.4.0"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "better-sqlite3"
-    ]
   }
 }
