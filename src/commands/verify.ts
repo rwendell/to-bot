@@ -1,8 +1,9 @@
 import { Discord, Slash, SlashOption } from "discordx";
 import { ApplicationCommandOptionType } from "discord.js";
 import type { CommandInteraction, GuildMember } from "discord.js";
+import { addVerifiedUser } from "../db";
 
-const STARTGG_GRAPHQL = "https://api.start.gg/gql";
+const STARTGG_GRAPHQL = "https://api.start.gg/gql/alpha";
 
 interface StartGGPlayer {
   player: {
@@ -71,6 +72,13 @@ export class VerifyCommand {
       if (verifiedRole) {
         await member.roles.add(verifiedRole);
       }
+
+      await addVerifiedUser(
+        interaction.guildId!,
+        member.id,
+        player.name,
+        player.id,
+      );
 
       await interaction.editReply(
         `Successfully verified! ${verifiedRole ? "You now have the Verified role." : ""}`,
