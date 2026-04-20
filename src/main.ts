@@ -2,9 +2,7 @@ import { dirname, importx } from "@discordx/importer";
 import { Events, GatewayIntentBits } from "discord.js";
 import { Client } from "discordx";
 import "dotenv/config";
-import { getDb } from "./db";
-
-await getDb();
+import "./db";
 
 const client = new Client({
   intents: [

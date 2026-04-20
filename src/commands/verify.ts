@@ -1,7 +1,8 @@
 import { Discord, Slash, SlashOption } from "discordx";
 import { ApplicationCommandOptionType } from "discord.js";
 import type { CommandInteraction, GuildMember } from "discord.js";
-import { addVerifiedUser } from "../db";
+import { db } from "../db";
+import { verifiedUsers } from "../db/schema";
 
 const STARTGG_GRAPHQL = "https://api.start.gg/gql/alpha";
 
@@ -73,12 +74,16 @@ export class VerifyCommand {
         await member.roles.add(verifiedRole);
       }
 
-      await addVerifiedUser(
-        interaction.guildId!,
-        member.id,
-        player.name,
-        player.id,
-      );
+      await db
+        .insert(verifiedUsers)
+        .values({
+          guildId: interaction.guildId!,
+          userId: member.id,
+          startggUsername: player.name,
+          startggUserId: player.id,
+          verifiedAt: new Date(),
+        })
+        .onConflictDoNothing();
 
       await interaction.editReply(
         `Successfully verified! ${verifiedRole ? "You now have the Verified role." : ""}`,
