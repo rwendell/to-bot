@@ -7,10 +7,10 @@ Discord bot for tournament organizers to verify players via start.gg integration
 ## Features
 
 - [ ] Player verification (/verify command)
-- [ ] start.gg account linking
-- [ ] Tournament role management
-- [ ] Match result posting
-- [ ] Bracket integration
+- [ ] start.gg account linking via Discord authorization
+- [ ] Server-specific verified role assignment
+- [ ] Multi-server support (each server has own config)
+- [ ] Tournament setup command for organizers
 
 ## Tech Stack
 
