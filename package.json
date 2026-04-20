@@ -1,7 +1,7 @@
 {
-  "name": "tourneyflow-bot",
+  "name": "to-bot",
   "version": "1.0.0",
-  "description": "Automated tournament verification bot with start.gg integration",
+  "description": "Virtual Tournament Organizer - Automated bot that does everything a human TO can do",
   "type": "module",
   "scripts": {
     "dev": "pnpm tsx src/main.ts",

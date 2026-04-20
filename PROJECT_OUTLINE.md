@@ -1,8 +1,8 @@
-# TourneyFlow Project Outline
+# TO Bot Project Outline
 
 ## Overview
 
-Automated tournament verification bot - verifies players via start.gg + Discord integration for tournament organizers.
+Virtual Tournament Organizer - Automated bot that does everything a human TO can do. Verifies players via start.gg + Discord integration.
 
 ## Features
 

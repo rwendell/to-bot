@@ -1,6 +1,6 @@
-# TourneyFlow Bot
+# TO Bot
 
-Automated tournament verification bot for tournament organizers.
+Virtual Tournament Organizer - Automated bot that does everything a human TO can do.
 
 Players verify their start.gg accounts via Discord to access tournament servers.
 

@@ -15,7 +15,7 @@ const client = new Client({
 
 client.once(Events.ClientReady, () => {
   client.initApplicationCommands();
-  console.log(">> Bot started");
+  console.log(">> TO Bot started");
 });
 
 client.on(Events.InteractionCreate, (interaction) => {
