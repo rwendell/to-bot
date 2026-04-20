@@ -1,8 +1,8 @@
-# TO Bot Project Outline
+# VTO Project Outline
 
 ## Overview
 
-Virtual Tournament Organizer - Automated bot that does everything a human TO can do. Verifies players via start.gg + Discord integration.
+VTO (Virtual Tournament Organizer) - Automated bot that does everything a human TO can do. Verifies players via start.gg + Discord integration.
 
 ## Features
 

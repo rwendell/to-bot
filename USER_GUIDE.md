@@ -1,8 +1,8 @@
-# TO Bot User Guide
+# VTO User Guide
 
 ## What This Bot Does
 
-Virtual Tournament Organizer - Verifies players for tournament organizers by checking if their start.gg account is linked to their Discord. Verified users get the "Verified" role automatically.
+VTO (Virtual Tournament Organizer) - Verifies players for tournament organizers by checking if their start.gg account is linked to their Discord. Verified users get the "Verified" role automatically.
 
 ---
 

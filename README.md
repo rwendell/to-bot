@@ -1,4 +1,4 @@
-# TO Bot
+# VTO
 
 Virtual Tournament Organizer - Automated bot that does everything a human TO can do.
 

@@ -15,7 +15,7 @@ const client = new Client({
 
 client.once(Events.ClientReady, () => {
   client.initApplicationCommands();
-  console.log(">> TO Bot started");
+  console.log(">> VTO started");
 });
 
 client.on(Events.InteractionCreate, (interaction) => {
