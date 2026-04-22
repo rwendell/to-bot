@@ -1,5 +1,5 @@
-import { Discord, Slash } from "discordx";
 import type { CommandInteraction } from "discord.js";
+import { Discord, Slash } from "discordx";
 
 const HELP_TEXT = `
 
@@ -24,14 +24,14 @@ Self-DQ from a tournament
 
 @Discord()
 export class HelpCommand {
-    @Slash({
-        description: "Get help with VTO commands",
-        name: "help",
-    })
-    async help(interaction: CommandInteraction): Promise<void> {
-        await interaction.reply({
-            content: HELP_TEXT,
-            ephemeral: false,
-        });
-    }
+	@Slash({
+		description: "Get help with VTO commands",
+		name: "help",
+	})
+	async help(interaction: CommandInteraction): Promise<void> {
+		await interaction.reply({
+			content: HELP_TEXT,
+			ephemeral: false,
+		});
+	}
 }

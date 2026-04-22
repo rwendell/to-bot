@@ -1,7 +1,22 @@
 import "dotenv/config";
-import { dirname, importx } from "@discordx/importer";
+import { importx } from "@discordx/importer";
 import { Events, GatewayIntentBits } from "discord.js";
 import { Client } from "discordx";
+import figlet from "figlet";
+import { fileURLToPath } from "node:url";
+import { join, dirname } from "node:path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const art = figlet.textSync("V.T.O.", { font: "DOS Rebel" });
+const lines = art.split("\n");
+console.log(lines.slice(0, -3).join("\n"));
+console.log("");
+console.log("Virtual Tournament Organizer");
+console.log("");
+console.log("");
+console.log("");
 
 const client = new Client({
     intents: [GatewayIntentBits.Guilds],
@@ -10,7 +25,6 @@ const client = new Client({
 client.once(Events.ClientReady, async () => {
     console.log(">> Loading commands...");
     await client.initApplicationCommands();
-    console.log(">> VTO (Virtual Tournament Organizer) started");
 
     // Log registered commands
     console.log(">> Registered commands:");
@@ -23,8 +37,8 @@ client.on(Events.InteractionCreate, (interaction) => {
     client.executeInteraction(interaction);
 });
 
-console.log(">> Importing commands from:", `${dirname(import.meta.url)}/commands/**/*.{js,ts}`);
-await importx(`${dirname(import.meta.url)}/commands/**/*.{js,ts}`);
+console.log(">> Importing commands from: src/commands/**/*.{js,ts}");
+await importx(join(__dirname, "commands/**/*.{js,ts}"));
 console.log(">> Commands imported");
 
 if (!process.env.DISCORD_TOKEN) {
